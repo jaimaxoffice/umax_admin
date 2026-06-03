@@ -108,6 +108,24 @@ const ADMIN_SECTIONS = [
       
     ],
   },
+  {
+    label: "BONUS",
+    items: [
+      {
+        label: "Bonus Transaction",
+        icon: Clock,
+        path: "/bonus-transaction",
+        permission: "BONUS TRANSACTION",
+      },
+      // {
+      //   label: "Bonus Coin History",
+      //   icon: Coins,
+      //   path: "/bonus-coin-history",
+      //   permission: "BONUS COIN HISTORY",
+      // },
+      
+    ],
+  },
   
 ];
 

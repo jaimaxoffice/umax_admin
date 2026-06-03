@@ -13,6 +13,7 @@ import NoAccess from "./components/NoAccess";
 import PrivateRoute from "./router/PrivateRoute";
 import PublicRoute from "./router/PublicRoute";
 import TeamInvestment from "./pages/Investments/TeamInvestments";
+import BonusTransaction from "./pages/BonusTransaction/BonusTransaction";
 
 const PermissionRoute = ({ element, permission, permissions }) => {
   if (!permission || permissions?.includes(permission)) {
@@ -33,6 +34,7 @@ const ADMIN_ROUTES = [
   { path: "/admin-users", element: <AdminUser /> },
   { path: "/user-summary", element: <UserSummary /> },
   { path: "/team-investments", element: <TeamInvestment /> },
+  { path: "/bonus-transaction", element: <BonusTransaction /> },
 ];
 
 // ─────────────────────────────────────────────
