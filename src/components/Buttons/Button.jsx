@@ -22,7 +22,7 @@ const Button = ({
 
 // Button.jsx - Updated variants
 const variants = {
-  primary: "bg-[#b9fd5c] text-black hover:bg-[#a8ec4b] rounded-3xl",
+  primary: "bg-main text-black hover:bg-accent rounded-3xl",
   primaryOrange: "bg-[#b9fd5c] text-black  rounded-3xl", // New
   secondary: "bg-[#2a2c2f] text-white hover:bg-[#333] border border-transparent rounded-3xl",
   outline: "bg-transparent border border-[#b9fd5c] text-[#b9fd5c] hover:bg-[#b9fd5c]/10 rounded-xl",

@@ -56,6 +56,7 @@ import {
   Handshake,
   ArrowLeftRight,
   Landmark,
+  Boxes,
 } from "lucide-react";
 
 // ─── ADMIN (role === 0) ───
@@ -73,29 +74,29 @@ const ADMIN_SECTIONS = [
       
     ],
   },
-  {
-    label: "USERS",
-    items: [
-      {
-        label: "user-info",
-        icon: UserSearch,
-        path: "/user-info",
-        permission: "USER INFO",
-      },
-      {
-        label: "Admin-Users",
-        icon: UserCog,
-        path: "/admin-users",
-        permission: "ADMIN USERS",
-      },
-      {
-        label: "User-Summary",
-        icon: UserPen,
-        path: "/user-summary",
-        permission: "USER SUMMARY",
-      },
-    ],
-  },
+  // {
+  //   label: "USERS",
+  //   items: [
+  //     {
+  //       label: "user-info",
+  //       icon: UserSearch,
+  //       path: "/user-info",
+  //       permission: "USER INFO",
+  //     },
+  //     {
+  //       label: "Admin-Users",
+  //       icon: UserCog,
+  //       path: "/admin-users",
+  //       permission: "ADMIN USERS",
+  //     },
+  //     {
+  //       label: "User-Summary",
+  //       icon: UserPen,
+  //       path: "/user-summary",
+  //       permission: "USER SUMMARY",
+  //     },
+  //   ],
+  // },
   {
     label: "INVESTMENT",
     items: [
@@ -123,6 +124,18 @@ const ADMIN_SECTIONS = [
       //   path: "/bonus-coin-history",
       //   permission: "BONUS COIN HISTORY",
       // },
+      
+    ],
+  },
+  {
+    label: "ORDERS",
+    items: [
+      {
+        label: "Orders Management",
+        icon: Boxes,
+        path: "/orders",
+        permission: "ORDER MANAGEMENT",
+      },
       
     ],
   },
@@ -216,8 +229,8 @@ function NavItem({ item, open, activePath, navigate, searchQuery = "" }) {
         <div
           className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 ${
             active
-              ? "bg-[#b9fd5c] text-black shadow-lg shadow-[#b9fd5c]/25"
-              : "text-white group-hover:bg-[#ffff] group-hover:text-[#000000]"
+              ? "bg-main text-white shadow-lg shadow-[#b9fd5c]/25"
+              : "text-white group-hover:bg-accent-soft group-hover:text-[#000000]"
           }`}
         >
           <IconComponent
@@ -235,13 +248,13 @@ function NavItem({ item, open, activePath, navigate, searchQuery = "" }) {
       onClick={handleClick}
       className={`group w-full flex items-center gap-2.5 px-2.5 py-3 rounded-xs mb-1.5 text-[12.5px] transition-all duration-200 cursor-pointer ${
         active
-          ? "bg-[#b9fd5c] text-black font-semibold shadow-sm shadow-[#b9fd5c]/20"
+          ? "bg-main text-white font-semibold shadow-sm shadow-[#b9fd5c]/20"
           : "hover:bg-[#252d38] text-white hover:text-white font-semibold"
       }`}
     >
       <span
         className={`shrink-0 transition-all duration-200 ${
-          active ? "text-black" : "text-white group-hover:text-[#b9fd5c]"
+          active ? "text-white" : "text-white group-hover:text-accent"
         }`}
       >
         <IconComponent
@@ -291,14 +304,14 @@ function LoadingState({ expanded }) {
   if (!expanded) {
     return (
       <div className="flex justify-center py-8">
-        <Loader2 size={20} className="text-[#b9fd5c] animate-spin" />
+        <Loader2 size={20} className="text-accent animate-spin" />
       </div>
     );
   }
 
   return (
     <div className="flex flex-col items-center justify-center py-8 px-3">
-      <Loader2 size={24} className="text-[#b9fd5c] animate-spin mb-2" />
+      <Loader2 size={24} className="text-accent animate-spin mb-2" />
       <p className="text-gray-400 text-xs">Loading menu...</p>
     </div>
   );
@@ -330,7 +343,7 @@ function ErrorState({ expanded, onRetry }) {
       {onRetry && (
         <button
           onClick={onRetry}
-          className="text-[10px] text-[#b9fd5c] hover:text-[#a8ec4b] transition-colors underline underline-offset-2 cursor-pointer"
+          className="text-[10px] text-accent hover:text-accent-soft transition-colors underline underline-offset-2 cursor-pointer"
         >
           Try again
         </button>
@@ -354,7 +367,7 @@ function MobileHeader({ onMenuToggle, userName, role }) {
             <Menu size={16} className="text-white" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-[#b9fd5c]/20 flex items-center justify-center text-[#b9fd5c] font-bold text-xs shrink-0">
+            <div className="w-7 h-7 rounded-full bg-[#b9fd5c]/20 flex items-center justify-center text-accent font-bold text-xs shrink-0">
               {(userName?.charAt(0) || "A").toUpperCase()}
             </div>
             <div className="min-w-0">
@@ -422,7 +435,7 @@ function SidebarContent({
         <div className="flex items-center justify-between">
           {expanded && (
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-12 h-12 rounded-full bg-[#b9fd5c]/20 flex items-center justify-center text-[#b9fd5c] font-bold text-sm shrink-0">
+              <div className="w-12 h-12 rounded-full bg-[#b9fd5c]/20 flex items-center justify-center text-accent font-bold text-sm shrink-0">
                 <img src="/jIcon.svg" alt="logo" />
               </div>
               <div className="min-w-0">
@@ -466,13 +479,13 @@ function SidebarContent({
             <div
               className={`flex items-center gap-2 bg-[#111111] rounded-lg px-2.5 py-2 text-xs border transition-colors duration-200 ${
                 searchQuery
-                  ? "border-[#b9fd5c]/50 ring-1 ring-[#b9fd5c]/20"
+                  ? "border-border-accent/20 ring-1 ring-[#b9fd5c]/20"
                   : "border-[#1a1a1a]"
               }`}
             >
               <Search
                 size={13}
-                className={searchQuery ? "text-[#b9fd5c]" : "text-gray-600"}
+                className={searchQuery ? "text-accent" : "text-gray-600"}
               />
               <input
                 value={searchQuery}
@@ -508,7 +521,7 @@ function SidebarContent({
           <>
             {expanded && searchQuery.trim() && !hasNoResults && (
               <div className="px-2 mb-1.5">
-                <p className="text-[10px] text-[#b9fd5c]">
+                <p className="text-[10px] text-accent-soft">
                   Found {totalResults} result{totalResults !== 1 ? "s" : ""} for
                   &quot;{searchQuery}&quot;
                 </p>
@@ -528,7 +541,7 @@ function SidebarContent({
                 </p>
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="mt-2 text-[10px] text-[#b9fd5c] hover:text-[#a8ec4b] transition-colors underline underline-offset-2 cursor-pointer"
+                  className="mt-2 text-[10px] text-accent hover:text-accent-soft transition-colors underline underline-offset-2 cursor-pointer"
                 >
                   Clear search
                 </button>

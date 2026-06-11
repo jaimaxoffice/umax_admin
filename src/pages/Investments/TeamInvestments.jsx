@@ -154,10 +154,10 @@ const TeamInvestment = () => {
       render: (row) => (
         <span
           className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-            row.status === "approved"
+            row.status === "completed"
               ? "text-[#b9fd5c]"
               : row.status === "pending"
-                ? "text-yellow-400"
+                ? "text-yellow-400" : row.status === "failed" ? "text-gray-300"
                 : "text-red-400"
           }`}
         >
@@ -213,7 +213,7 @@ const TeamInvestment = () => {
                   })
                 }
                 className="w-full bg-[#111214] border border-[#2a2c2f] text-white rounded-xl
-                py-3 px-4 text-sm focus:outline-none focus:border-[#b9fd5c]
+                py-3 px-4 text-sm focus:outline-none focus:border-main/60
                 focus:ring-1 focus:ring-[#b9fd5c]/30 transition-colors
                 [color-scheme:dark]"
               />
@@ -235,7 +235,7 @@ const TeamInvestment = () => {
                   })
                 }
                 className="w-full bg-[#111214] border border-[#2a2c2f] text-white rounded-xl
-                py-3 px-4 text-sm focus:outline-none focus:border-[#b9fd5c]
+                py-3 px-4 text-sm focus:outline-none focus:border-main/60
                 focus:ring-1 focus:ring-[#b9fd5c]/30 transition-colors
                 [color-scheme:dark]"
               />
@@ -251,13 +251,13 @@ const TeamInvestment = () => {
                 value={selectedStatus}
                 onChange={handleStatusChange}
                 className="w-full bg-[#111214] border border-[#2a2c2f] text-white rounded-xl
-      py-3 px-4 text-sm focus:outline-none focus:border-[#b9fd5c]
+      py-3 px-4 text-sm focus:outline-none focus:border-main/60
       focus:ring-1 focus:ring-[#b9fd5c]/30 transition-colors cursor-pointer"
               >
                 <option value="">All Status</option>
                 <option value="pending">Pending</option>
-                <option value="approved">Approved</option>
-                <option value="rejected">Rejected</option>
+                <option value="completed">Completed</option>
+                <option value="failed">Failed</option>
                 <option value="expired">Expired</option>
               </select>
             </div>

@@ -50,7 +50,7 @@ const StatCard = ({
               loading="lazy"
             />
           ) : (
-            <div className="w-15 h-15  p-3   flex items-center justify-center bg-[#000000] text-[#b9fd5c] rounded-lg ">
+            <div className="w-15 h-15  p-3   flex items-center justify-center bg-[#100f0f] text-accent rounded-lg ">
               {/* ✅ Handles both JSX and component reference */}
               {renderIcon()}
             </div>

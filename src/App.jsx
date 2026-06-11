@@ -14,6 +14,7 @@ import PrivateRoute from "./router/PrivateRoute";
 import PublicRoute from "./router/PublicRoute";
 import TeamInvestment from "./pages/Investments/TeamInvestments";
 import BonusTransaction from "./pages/BonusTransaction/BonusTransaction";
+import OrderManagement from "./pages/Orders/OrderManagement";
 
 const PermissionRoute = ({ element, permission, permissions }) => {
   if (!permission || permissions?.includes(permission)) {
@@ -30,11 +31,12 @@ const PermissionRoute = ({ element, permission, permissions }) => {
 const ADMIN_ROUTES = [
   { path: "/", element: <Dashboard /> },
   { path: "/user-management", element: <Users /> },
-  { path: "/user-info", element: <UserInfo /> },
-  { path: "/admin-users", element: <AdminUser /> },
-  { path: "/user-summary", element: <UserSummary /> },
+  // { path: "/user-info", element: <UserInfo /> },
+  // { path: "/admin-users", element: <AdminUser /> },
+  // { path: "/user-summary", element: <UserSummary /> },
   { path: "/team-investments", element: <TeamInvestment /> },
   { path: "/bonus-transaction", element: <BonusTransaction /> },
+  { path: "/orders", element: <OrderManagement /> },
 ];
 
 // ─────────────────────────────────────────────
@@ -50,22 +52,32 @@ const SUB_ADMIN_ROUTES = [
     permission: "USER MANAGEMENT",
   },
 
-  {
-    path: "/user-info",
-    element: <UserInfo />,
-    permission: "USER INFO",
-  },
+  // {
+  //   path: "/user-info",
+  //   element: <UserInfo />,
+  //   permission: "USER INFO",
+  // },
 
-  {
-    path: "/admin-users",
-    element: <AdminUser />,
-    permission: "ADMIN USERS",
-  },
+  // {
+  //   path: "/admin-users",
+  //   element: <AdminUser />,
+  //   permission: "ADMIN USERS",
+  // },
 
+  // {
+  //   path: "/user-summary",
+  //   element: <UserSummary />,
+  //   permission: "USER SUMMARY",
+  // },
   {
-    path: "/user-summary",
-    element: <UserSummary />,
-    permission: "USER SUMMARY",
+    path: "/team-investments",
+    element: <TeamInvestment />,
+    permission: "INVESTMENTS",
+  },
+  {
+    path: "/bonus-transaction",
+    element: <TeamInvestment />,
+    permission: "BONUS TRANSACTION",
   },
 ];
 

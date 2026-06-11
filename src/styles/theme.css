@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* 🎨 Theme Tokens */
+@theme {
+  /* Primary (Main Brand Color) */
+  --color-main: #eb660f;
+
+  /* Accent / Hover Color */
+  --color-accent: #f48338;
+
+  /* Slightly lighter hover (optional extra smooth UI feel) */
+  --color-accent-soft: #f79a55;
+
+  /* Border variants */
+  --color-border-main: #bd7809;
+  --color-border-accent: #f48338;
+
+  /* Text */
+  --color-text-prime: #bd7809;
+  --color-text-accent: #f48338;
+
+  /* Background */
+  --color-bg-main: #bd7809;
+  --color-bg-accent: #f48338;
+}

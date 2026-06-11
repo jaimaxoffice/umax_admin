@@ -1,4 +1,4 @@
-function StatCard({ icon: Icon, value, title, variant = "lime", trend, trendValue }) {
+function StatCard({ icon: Icon, value, title, variant = "orange", trend, trendValue }) {
   const variants = {
     blue: {
       bg: "bg-[#282f35]",
@@ -30,15 +30,15 @@ function StatCard({ icon: Icon, value, title, variant = "lime", trend, trendValu
       glowColor: "bg-yellow-400/20",
       valueColor: "text-white",
     },
-    lime: {
+    orange: {
       bg: "bg-[#282f35]",
       border: "border-white/5",
-      iconColor: "text-[#b9fd5c]",
-      iconBg: "bg-[#b9fd5c]/10",
-      ghostColor: "text-[#b9fd5c]/[0.06]",
-      dotColor: "bg-[#b9fd5c]",
-      glowColor: "bg-[#b9fd5c]/20",
-      valueColor: "text-[#b9fd5c]",
+      iconColor: "text-main",
+      iconBg: "bg-main/10",
+      ghostColor: "text-main/[0.06]",
+      dotColor: "bg-accent",
+      glowColor: "bg-main/20",
+      valueColor: "text-main",
     },
     purple: {
       bg: "bg-[#282f35]",

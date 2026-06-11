@@ -5,7 +5,7 @@ export const dashboardApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getDetails: builder.query({
             query: () => ({
-                url: 'Admin/dashboard_details',
+                url: '/admin/dashboard_details',
                 method: 'GET', 
             })
         })

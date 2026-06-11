@@ -39,8 +39,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         disabled={currentPage === 1}
         className="w-9 h-9 flex items-center justify-center rounded-full
           text-[#ccc] bg-[#282f35]
-          hover:bg-[#b9fd5c] hover:text-[#111214]
-            disabled:hover:text-[#000000]
+          hover:bg-accent hover:text-[#111214]
+            disabled:hover:text-[#000000] disabled:hover:bg-accent/40
           disabled:cursor-not-allowed transition-all cursor-pointer"
       >
       <ArrowLeft size={18} />
@@ -62,8 +62,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       className={`w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center rounded-full text-xs sm:text-sm transition-all cursor-pointer
         ${
           page === currentPage
-            ? "bg-[#b9fd5c] text-[#111214] font-bold scale-110"
-            : "text-[#ccc] hover:bg-[#b9fd5c]/10 hover:text-[#b9fd5c]"
+            ? "bg-main text-[#111214] font-bold scale-110"
+            : "text-[#ccc] hover:bg-[#b9fd5c]/10 hover:text-accent-soft"
         }`}
     >
       {page}
@@ -76,8 +76,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         disabled={currentPage === totalPages}
         className="w-9 h-9 flex items-center justify-center rounded-full
           text-[#ccc] bg-[#282f35]
-          hover:bg-[#b9fd5c] hover:text-[#111214]
-          disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-[#ccc]
+          hover:bg-accent hover:text-[#111214]
+          disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-[#ccc] 
           disabled:cursor-not-allowed transition-all cursor-pointer"
       >
          <ArrowRight size={18}/>

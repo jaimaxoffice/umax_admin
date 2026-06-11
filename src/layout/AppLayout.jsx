@@ -77,11 +77,11 @@ export default function AppLayout() {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden text-white hover:text-[#b9fd5c] transition-colors"
+                className="lg:hidden text-white hover:text-accent-soft transition-colors"
               >
                 <Menu size={24} />
               </button>
-              <h1 className="text-2xl text-[#b9fd5c] font-semibold serialHeading">
+              <h1 className="text-2xl text-accent font-semibold serialHeading">
                 {pageTitle}
               </h1>
             </div>

@@ -11,7 +11,7 @@ const ToggleSwitch = ({ checked, onChange, disabled = false }) => {
         relative w-10 h-5 flex items-center rounded-full p-0.5 transition-all duration-300 
         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent
         ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
-        ${checked ? "bg-[#b9fd5c]" : "bg-[#9dad8f]"}
+        ${checked ? "bg-main" : "bg-[#9dad8f]"}
       `}
     >
       {/* Thumb */}

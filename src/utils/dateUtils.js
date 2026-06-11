@@ -1,14 +1,32 @@
-export const formatDateWithAmPm = (isoString) => {
-  const date = new Date(isoString);
-  const day = String(date.getUTCDate()).padStart(2, "0");
-  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const year = date.getUTCFullYear();
-  let hours = date.getUTCHours();
-  const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-  const amAndPm = hours >= 12 ? "PM" : "AM";
+// export const formatDateWithAmPm = (isoString) => {
+//   const date = new Date(isoString);
+//   const day = String(date.getUTCDate()).padStart(2, "0");
+//   const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+//   const year = date.getUTCFullYear();
+//   let hours = date.getUTCHours();
+//   const minutes = String(date.getUTCMinutes()).padStart(2, "0");
+//   const amAndPm = hours >= 12 ? "PM" : "AM";
+
+//   hours = hours % 12 || 12;
+//   return `${day}-${month}-${year} ${hours}:${minutes} ${amAndPm}`;
+// };
+export const formatDateWithAmPm = (dateString) => {
+  if (!dateString) return "N/A";
+
+  const date = new Date(dateString);
+
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+
+  const amPm = hours >= 12 ? "PM" : "AM";
 
   hours = hours % 12 || 12;
-  return `${day}-${month}-${year} ${hours}:${minutes} ${amAndPm}`;
+
+  return `${day}-${month}-${year} ${hours}:${minutes} ${amPm}`;
 };
 export const formatCurrency = (amount, currency) => {
   const symbol = currency === "INR" ? "₹" : "$";

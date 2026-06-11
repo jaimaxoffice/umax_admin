@@ -5,8 +5,8 @@ import { apiSlice } from "../../api/umaxApiSlice";
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: ({ page = 1, limit = 10 }) =>
-        `/admin/users?page=${page}&limit=${limit}`,
+      query: ({ page = 1, limit = 10, search = "" }) =>
+        `/admin/users?page=${page}&limit=${limit}&search=${search}`,
       providesTags: ["Users"],
     }),
 

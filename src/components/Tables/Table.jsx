@@ -44,7 +44,7 @@ const Table = ({
 
       <table className="w-full border-collapse" style={{ minWidth: "max-content" }}>
         <thead>
-          <tr className="bg-[#b9fd5c]">
+          <tr className="bg-main">
             {columns.map((col, i) => (
               <th
                 key={i}
@@ -54,14 +54,14 @@ const Table = ({
                   width: col.width || "auto",
                 }}
                 className={`
-                  px-3 py-2.5 text-[13.5px] font-bold text-black
+                  px-3 py-2.5 text-[13.5px] font-bold text-white
                   whitespace-nowrap text-center tableHead
                   ${col.sticky === "left"
-                    ? "sticky left-0 z-20 bg-[#b9fd5c] shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)]"
+                    ? "sticky left-0 z-20 bg-main shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)]"
                     : ""
                   }
                   ${col.sticky === "right"
-                    ? "sticky right-0 z-20 bg-[#b9fd5c] shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.3)]"
+                    ? "sticky right-0 z-20 bg-main shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.3)]"
                     : ""
                   }
                 `}
@@ -102,7 +102,7 @@ const Table = ({
             data?.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
-                className="bg-[#282f35] hover:bg-[#4851418d] transition-colors border-b border-[#343638] group"
+                className="bg-[#282f35] hover:bg-accent/5 transition-colors border-b border-[#343638] group"
               >
                 {columns.map((col, colIndex) => (
                   <td
@@ -116,11 +116,11 @@ const Table = ({
                       px-4 py-3 text-[12px] text-white whitespace-nowrap tablebody
                       ${col.cellClass || "text-center"}
                       ${col.sticky === "left"
-                        ? "sticky left-0 z-10 bg-[#282f35] group-hover:bg-[#3a4235] shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)]"
+                        ? "sticky left-0 z-10 bg-[#282f35] group-hover:bg-main/30 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)]"
                         : ""
                       }
                       ${col.sticky === "right"
-                        ? "sticky right-0 z-10 bg-[#282f35] group-hover:bg-[#3a4235] shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.3)]"
+                        ? "sticky right-0 z-10 bg-[#282f35] group-hover:bg-main/30 shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.3)]"
                         : ""
                       }
                     `}

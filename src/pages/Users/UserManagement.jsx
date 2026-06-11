@@ -71,8 +71,12 @@ const UserManagement = () => {
     viewReferrer: false,
     transaction: false,
   });
-  const queryParams = `limit=${state.perPage}&page=${state.currentPage}&search=${state.search}`;
-  const { data: getUser, isLoading, refetch } = useGetUsersQuery(queryParams);
+  // const queryParams = `limit=${state.perPage}&page=${state.currentPage}&search=${state.search}`;
+  const { data: getUser, isLoading, refetch } = useGetUsersQuery({
+  page: state.currentPage,
+  limit: state.perPage,
+  search: state.search,
+});
   const { data: viewUser, isLoading: isUserLoading } = useGetUserByIdQuery(
     selectedUserId,
     { skip: !selectedUserId },
@@ -195,30 +199,14 @@ const UserManagement = () => {
       render: (row) => getCurrency(row.countryCode, row.Inr),
     },
     // {
-    //   header: "Holding Balance",
-    //   render: (row) => getCurrency(row.countryCode, row.holdedInr),
+    //   header: "Block/Unblock",
+    //   render: (row) => (
+    //     <ToggleSwitch
+    //       checked={!row.isBlock}
+    //       onChange={() => handleToggleActive(row._id, row.isBlock)}
+    //     />
+    //   ),
     // },
-    // {
-    //   header: "P2P Balance",
-    //   render: (row) => getCurrency(row.countryCode, row.p2pInr),
-    // },
-    // {
-    //   header: "Wp-P2P Balance",
-    //   render: (row) => getCurrency(row.countryCode, row.wpStakingInr),
-    // },
-    // {
-    //   header: "Withdrawal Amount",
-    //   render: (row) => getCurrency(row.countryCode, row.totalWithdrawal),
-    // },
-    {
-      header: "Block/Unblock",
-      render: (row) => (
-        <ToggleSwitch
-          checked={!row.isBlock}
-          onChange={() => handleToggleActive(row._id, row.isBlock)}
-        />
-      ),
-    },
     {
       header: "Status",
       render: (row) => (
@@ -238,7 +226,7 @@ const UserManagement = () => {
           onClick={() => handleUserView(row._id, "viewUser")}
           variant="icon"
           size="sm"
-          className="text-white hover:text-[#b9fd5c]/80"
+          className="text-white hover:text-accent"
         >
           <Eye size={18} />
         </Button>
@@ -251,7 +239,7 @@ const UserManagement = () => {
           onClick={() => handleUserView(row.referenceId, "viewReferrer")}
           variant="icon"
           size="sm"
-          className="text-white hover:text-blue-300"
+          className="text-white hover:text-accent"
         >
           <Eye size={18} />
         </Button>

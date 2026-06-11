@@ -1,9 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "./styles/theme.css";
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"); */
 ::selection {
-  background: #b9fd5c !important;
+  background: #eb660f !important;
   color: black !important;
 }
 
@@ -68,7 +67,7 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #0ecb6f;
+  background: #eb660f;
 }
 
 /* src/index.css */
@@ -95,5 +94,5 @@ body {
 }
 
 .main-scroll::-webkit-scrollbar-thumb:hover {
-  background: #0ecb6f;
+  background: #eb660f;
 }

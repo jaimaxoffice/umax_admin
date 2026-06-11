@@ -54,7 +54,7 @@ const TransactionDetailsContent = ({
 
       <ReadOnlyField
         label="Eligible Percentage"
-        value={`${data?.elegiblePercentag}%`}
+        value={data?.elegiblePercentag ? `${data?.elegiblePercentag}%` : "N/A"}
       />
 
       <ReadOnlyField
@@ -161,13 +161,19 @@ const BonusTransaction = () => {
     },
     {
       header: "Percentage",
-      render: (row) => <span>{row?.elegiblePercentag || 0}%</span>,
+     render: (row) => (
+  <span>
+    {row?.elegiblePercentag != null
+      ? `${row.elegiblePercentag}%`
+      : "N/A"}
+  </span>
+),
     },
     {
       header: "Created Date",
       render: (row) => (
         <span className="text-xs">
-          {formatDateWithAmPm(row?.createdOn || row?.createdAt)}
+          {formatDateWithAmPm(row?.createdAt)}
         </span>
       ),
     },
@@ -178,7 +184,7 @@ const BonusTransaction = () => {
           onClick={() => handleTransactionView(row.transactionId)}
           variant="icon"
           size="sm"
-          className="text-white hover:text-[#b9fd5c]"
+          className="text-white hover:text-main"
         >
           <Eye size={18} />
         </Button>
@@ -200,9 +206,9 @@ const BonusTransaction = () => {
                   currentPage: 1,
                 }));
               }}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all cursor-pointer ${
                 bonusType === "DIRECT_REFERAL_INCOME"
-                  ? "bg-[#b9fd5c] text-black"
+                  ? "bg-main text-black"
                   : "text-gray-300 hover:bg-[#363d43]"
               }`}
             >
@@ -217,9 +223,9 @@ const BonusTransaction = () => {
                   currentPage: 1,
                 }));
               }}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all cursor-pointer ${
                 bonusType === "GRADUAL_BONUS_DAILY"
-                  ? "bg-[#b9fd5c] text-black"
+                  ? "bg-main text-black"
                   : "text-gray-300 hover:bg-[#363d43]"
               }`}
             >
